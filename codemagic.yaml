@@ -1,3 +1,4 @@
+
 workflows:
   yaad_raho_android:
     name: YaadRaho Android APK
@@ -7,9 +8,12 @@ workflows:
       groups:
         - google_play
     scripts:
+      - name: Generate Android folder
+        script: flutter create . --platforms=android
       - name: Get packages
         script: flutter pub get
       - name: Build release APK
         script: flutter build apk --release
     artifacts:
       - build/app/outputs/flutter-apk/*.apk
+      
